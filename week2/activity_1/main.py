@@ -6,6 +6,8 @@ def greet(name):
     print(name)
 
 
+
+# print(greet)
 # use an alias - consider why might we do this?
 
 def main():

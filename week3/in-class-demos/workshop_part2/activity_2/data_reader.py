@@ -1,32 +1,35 @@
 # Remember you file paths when you attempt use this file reader
 # import the reuseable csv library - docs at: https://docs.python.org/3/library/csv.html
 import csv
+
 # Function to read data from CSV file
 def read_sales_data(filename):
-    sales_data = []
     # Task 1: Read data from CSV file
-    with open(filename) as csvfile:
+    sales_data =[]
+
+    with open (filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            row["Product Name"] = row["Product"]
-            row["Units Sold"] = row["Units Sold"]
-            row["Unit Price"] = row["Unit Price"]
-            row["Total Revenue"] = row["Total Revenue"]
+            row["Units Sold"] = int(row['Units Sold'])
+            row["Units Price"] = float(row['Unit Price'])
+            row["Total Revenue"] = float(row['Total Revenue'])
             sales_data.append(row)
-        return sales_data
 
-sales_data = read_sales_data("sales_data.csv")
+    return sales_data
+
+sales_data = read_sales_data('sales_data_v2.csv')
 # Task 2: Calculate total revenue for each product
 product_revenue = {}
-for product in sales_data:
-    product_revenue[product["Product Name"]] = (product["Units Sold"] * product["Unit Price"])
-
+for sale in sales_data:
+    product = sale['Product']
+    revenue = sale['Total Revenue']
+    product_revenue[product] = product_revenue.get(product, 0)
 # Task 3: Identify the product with the highest total units sold
-max_units_sold = list(filter(lambda product: sales_data[product]["Units Sold"] == max(sales_data), range(len(sales_data))))[0][0]
+
 # Task 4: Calculate average unit price for each product - watch out for division by zero
 
 
-
+sales_data = read_sales_data('sales_data_v2.csv')
 # Display results
 print("Total revenue for each product:")
 for product, revenue in product_revenue.items():

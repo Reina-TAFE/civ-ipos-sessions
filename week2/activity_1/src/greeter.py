@@ -47,21 +47,6 @@ class Calculator:
             result = 0
         return result
 
-    def get_numbers(self):
-        for _ in self.numbers:
-            print(_)
-
-    def set_number(self, new_numbers):
-        self.numbers = new_numbers
-
-    def get_method(self):
-        return self.method
-
-    def set_method(self, new_method):
-        self.method = new_method
-
-    def get_result(self):
-        return self.result
 # So as not to contaminate your global namespace, it is good practice to use a main function.
 
 # so that we can reuse our code as both a module and
@@ -71,3 +56,5 @@ class Calculator:
 
     # above is __main__ when running directly
     # only called when a script
+
+# greet('John')

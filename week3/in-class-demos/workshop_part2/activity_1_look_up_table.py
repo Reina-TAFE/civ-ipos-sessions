@@ -18,6 +18,21 @@ def generate_product_catalog(product_codes: dict, product_data: dict):
             # TODO: Add the code-data pair to the catalog
     return look_up_table  # Return the completed catalog
 
+    # TODO Iterate over the rows of the product codes list
+    # product_codes = [
+    # 0 [0 'P1001', 1 'P1002'],
+    # 1 [0 'P1003', 1 'P1004']
+    # ]
+    for i in range(len(product_codes)):
+        # TODO Iterate over the elements in each row
+        for j in range(len(product_codes[i])):
+            # TODO Use the product code as the key for the dictionary
+            # print(product_codes[i][j])
+            key = (product_codes[i][j])
+            # TODO Use the corresponding product info as the value for the dictionary
+            value = product_info[i][j]
+            # TODO Add the key-value pair to the lookup table
+            lookup_table[key] = value
 
 # Define the product code grid as a dictionary of dictionaries
 product_code_grid = {
@@ -56,3 +71,4 @@ print(product_catalog)
 #     'P1003': ('Cherry', 0.75),
 #     'P1004': ('Date', 1.5)
 # }
+
