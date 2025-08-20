@@ -23,7 +23,6 @@ def main():
 
     # Re-open the data.bin file in binary write-append mode
     with open("./data_v2.bin", "ab") as file:
-        data = file.read()
         # Use the tell() method to get the current file pointer position and store it as a bookmark
         pointer = file.tell()
 
