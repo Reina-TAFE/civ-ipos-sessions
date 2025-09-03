@@ -8,5 +8,6 @@ def insertion_sort(arr):
         arr[previous + 1] = key
     return arr
 
+
 # Example usage: https://www.hackerearth.com/practice/algorithms/sorting/insertion-sort/visualize/
 print(insertion_sort([64, 34, 25, 12, 22, 11, 90]))

@@ -6,9 +6,9 @@ class Queue:
 
     def peek(self):
         if not self.is_empty():
-            return self.queue[0] # Return the item at the front without removing it
+            return self.queue[0]  # Return the item at the front without removing it
         else:
-            return None# Return None if the queue is empty
+            return None  # Return None if the queue is empty
     def is_empty(self):
         return len(self.queue) == 0
     

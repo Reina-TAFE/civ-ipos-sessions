@@ -7,7 +7,7 @@ def merge_sort(arr):
         merge_sort(LEFT)
         merge_sort(RIGHT)
 
-        #set the starting point
+        # set the starting point
         index_left = index_right = target_index = 0
 
         while index_left < len(LEFT) and index_right < len(RIGHT):
@@ -31,6 +31,7 @@ def merge_sort(arr):
             target_index += 1
 
     return arr
+
 
 # Example usage: https://www.hackerearth.com/practice/algorithms/sorting/merge-sort/visualize/
 print(merge_sort([64, 34, 25, 12, 22, 11, 90]))
