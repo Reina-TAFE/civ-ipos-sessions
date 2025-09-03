@@ -5,7 +5,7 @@ import pprint
 import traceback
 
 # Set up logging
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Configuring logging to write to a file
 # logging.basicConfig(filename='./logs/_app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -20,22 +20,25 @@ import traceback
 # Toggle for debug prints
 debug = True
 
+
 def log_message(message):
     """Prints a message with contextual information."""
     caller = inspect.stack()[1]
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    pprint.pprint(caller) # test for the method sending the error
+    pprint.pprint(caller)  # test for the method sending the error
     # logging.info(f"Log Message output: [{timestamp}] {caller.function} (line {caller.lineno}): {message}")
+
 
 def conditional_print(message):
     """Prints a message only if debugging is enabled."""
     if debug:
         print(f"Conditional print: ${message}")
 
+
 def process_numbers(numbers):
     """Processes a list of numbers by filtering and modifying them."""
     # log_message(f"Received numbers: {numbers}")
-    
+
     try:
         # Step 1: Filter out negative numbers
         filtered = [num for num in numbers if num >= 0]
@@ -47,12 +50,13 @@ def process_numbers(numbers):
 
         # Print detailed structure of modified numbers
         pprint.pp(modified)
-        
+
         return modified
     except Exception as e:
         # logging.error(f"Error processing numbers: {e}")
         traceback.print_exc()
         return None
+
 
 # Sample data to process
 numbers = [5, -3, 2, -8, 7, 10, -1, 0]
