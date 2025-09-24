@@ -9,40 +9,52 @@ Ensure you step through this program in pdb only to understand how the program w
 # Once debugged add some documentation examples to help the next programmer!
 import sys
 import pdb
+
+
 # import os
 
 def add_task(tasks, task):
+    # change task.append() to tasks.append()
     # pdb.set_trace()
-    task.append((task, False))
+    tasks.append((task, False))
+
 
 def mark_task_completed(tasks, index):
     # pdb.set_trace()
     if 0 <= index < len(tasks):
-        tasks[index] = True 
+        # change tasks[index] = True to tasks[index] = (task, True)
+        tasks[index] = (tasks[index][0], True)
     else:
         print("Invalid task index.")
+
 
 def delete_task(tasks, index):
     # pdb.set_trace()
     if 0 <= index < len(tasks):
-        tasks.remove(tasks[index]) 
+        tasks.remove(tasks[index])
     else:
         print("Invalid task index.")
+
 
 def list_tasks(tasks):
     # pdb.set_trace()
     if not tasks:
         print("No tasks available.")
         return
-
     for index, task in enumerate(tasks):
-        print(f"{index}. {'[X]' if task else '[ ]'} {task[0]}") 
+        print(f"{index}. {'[X]' if task[1] is True else '[ ]'} {task[0]}")
+
 
 def sort_tasks(tasks):
-    # pdb.set_trace()
-    tasks.sort(key=lambda x: x[0])
+    pdb.set_trace()
+    # sort tasks by if they are complete, complete tasks shown at beginning
+    tasks.sort(key=lambda task: task[0])
+
 
 def binary_search(tasks, target):
+    pdb.set_trace()
+    # binary search requires tasks to be sorted
+    sort_tasks(tasks)
     low, high = 0, len(tasks) - 1
     while low <= high:
         mid = (low + high) // 2
@@ -53,6 +65,7 @@ def binary_search(tasks, target):
         else:
             high = mid - 1
     return -1
+
 
 def main():
     # pdb.set_trace()
@@ -73,13 +86,14 @@ def main():
             task = input("Enter task description: ")
             add_task(tasks, task)
         elif choice == "2":
-            pdb.set_trace()
             index = int(input("Enter task index to mark as completed: "))
+            # pdb.set_trace()
             mark_task_completed(tasks, index)
         elif choice == "3":
             index = int(input("Enter task index to delete: "))
             delete_task(tasks, index)
         elif choice == "4":
+            pdb.set_trace()
             list_tasks(tasks)
         elif choice == "5":
             sort_tasks(tasks)
@@ -87,6 +101,7 @@ def main():
         elif choice == "6":
             target = input("Enter task description to search: ")
             index = binary_search(tasks, target)
+            pdb.set_trace()
             if index != -1:
                 print(f"Task '{target}' found at index {index}.")
             else:
@@ -95,6 +110,7 @@ def main():
             sys.exit("Exiting program.")
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main()

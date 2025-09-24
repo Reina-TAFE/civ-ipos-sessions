@@ -17,7 +17,7 @@ def logger(func):
 
 
 @logger
-def greet(name, key):
+def greet(name, key, **kwargs):
     print(f"Hi, {name}")
 
 # greet("Robbo", 'firstname')
