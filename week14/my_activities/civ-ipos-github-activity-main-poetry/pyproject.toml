@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "flask-tic-tac-toe"
+version = "0.1.0"
+description = "Tic-tac-toe game using flask"
+authors = ["20066312@tafe.wa.edu.au"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "^2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
