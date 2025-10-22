@@ -78,3 +78,29 @@ On Windows (run Command Prompt or PowerShell as administrator):
 ```bash
 pip install /path/to/flask_tic_tac_toe-0.1.0-py3-none-any.whl
 ```
+
+## Using pyproject
+```toml
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask_tic_tac_toe"
+version = "0.1.0"
+description = "A simple Flask-based Tic Tac Toe game"
+authors = [
+    { name="John Robertson", email="john@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "flask>=2.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+```

@@ -1,4 +1,4 @@
-### **3. Using `Poetry` for Packaging and Dependency Management**
+poetry build### **3. Using `Poetry` for Packaging and Dependency Management**
 
 **Project structure:**
 
