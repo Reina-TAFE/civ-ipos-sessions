@@ -1,7 +1,6 @@
 # note how this library is inbuilt
 import asyncio
 
-
 async def download(url):
     print(f"Downloading {url}")
     # wait for the response

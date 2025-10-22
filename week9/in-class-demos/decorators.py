@@ -19,10 +19,10 @@ def logger(func):
 
 
 @logger
-def greet(name, key, *args):
-# def greet(name, key, **kwargs):
+# def greet(name, key, *args):
+def greet(name, key, **kwargs):
     print(f"Hi, {name}")
 
 
-greet("Robbo", 'firstname', 'Stott', 'secondname')
-# greet(name="Robbo", key="firstname", name2="Stott", key2="secondname")
+# greet("Robbo", 'firstname', 'Stott', 'secondname')
+greet(name="Robbo", key="firstname", name2="Stott", key2="secondname")

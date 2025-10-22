@@ -2,15 +2,15 @@ class ConfigManager:
     # attribute to store the single instance
     _instance = None
 
-    def __new__(my_singleton_class):
+    def __new__(cls):
         # Check if an instance already exists
-        if my_singleton_class._instance is None: # often cls is used in convention
+        if cls._instance is None: # often cls is used in convention
             # new instance with superclass's __new__ method
-            my_singleton_class._instance = super().__new__(my_singleton_class)
+            cls._instance = super().__new__(cls)
             # create a settings collection
-            my_singleton_class._instance.settings = {}
+            cls._instance.settings = {}
 
-        return my_singleton_class._instance
+        return cls._instance
 
 
 a = ConfigManager()
